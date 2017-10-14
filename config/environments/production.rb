@@ -75,6 +75,30 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  config.action_mailer.default_url_options = { host: 'tree.rent', port: 80 }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    enable_starttls_auto: true,
+    autentication: 'plain',
+    user_name: 'ejhiewtree@gmail.com',
+    password: 'tree.rent1598753'
+  }
+
+  config.paperclip_defaults = {
+  storage: :s3,
+  path: ':class/:attachment/:id/:style/:filename',
+  s3_host_name: 's3-ap-southeast-1.amazonaws.com',
+  s3_credentials: {
+    bucket: 'tree.rent',
+    access_key_id: 'AKIAJG3PSESEFJSSND4A',
+    secret_access_key: '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',
+    s3_region: 'ap-southeast-1'
+    }
+  }
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
