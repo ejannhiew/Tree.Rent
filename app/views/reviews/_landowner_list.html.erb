@@ -28,7 +28,7 @@
 
     <script>
       $('#star_<%= r.id %>').raty({
-        path: '/assets',
+        path: Rails.root/'app'/'assets',
         readOnly: true,
         score: <%= r.star %>
       });

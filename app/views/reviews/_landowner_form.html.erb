@@ -38,7 +38,7 @@
 
 <script>
   $('#stars_<%= rental.id %>').raty({
-    path: '/assets',
+    path: Rails.root/'app'/'assets',
     scoreName: 'landowner_review[star]',
     score: 1
   });
